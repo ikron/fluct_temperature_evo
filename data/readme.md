@@ -1,6 +1,6 @@
 # Data files
 
-- Pome_competition_experiment_data.csv
+## Pome_competition_experiment_data.csv
 <ul>
   <li> This file contains data for the competition experiments</li>
   <li> It contains the counts of the evolved strain and the ancestor</li>
@@ -27,3 +27,7 @@
   <li> 19: Ancestor.final.CFU: Colony count of the competitor from the final time point </li>
   </ul>
 </ul>
+
+## Pombe_competition_experiment_models_original.RData
+
+This in an R data file contains the saved brms models for the analysis of competition experiment data. This intermediate step is saved so that the posterior distributions do not need to ba calculated again eveytime, since sampling for those models is a bit slow. This file can be loaded into R.
