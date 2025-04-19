@@ -5,6 +5,8 @@ This repository contains data ans scripts related to the manuscript: "Adaptation
 
 ## Data
 
-
+Data files are in the folder /data/ refer to readme in that folder for the specific files and their contents
 
 ## Scripts for analysis
+
+Script files are in the folder /scripts/ refer to readme in that folder for their contents
