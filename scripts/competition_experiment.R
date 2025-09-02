@@ -137,6 +137,7 @@ relw_all <- ggplot(data = post.all,  aes(x = Evolution, y = Estimate, ymin = Q2.
         legend.title = element_text(size=16))
 
 save_plot("Figure_2.png", relw_all, base_height=3.71, base_width = 3.71*2*1.618)
+save_plot("./fig/Figure_2.pdf", relw_all, base_height=3, base_width = 9)
 
 #Figure 3: The relative fitness of the evolved populations compared 
 #to their ancestors for data divided by the population size. The relative fitness is
@@ -169,10 +170,10 @@ relw_popsize <- ggplot(data = post.popsize,  aes(x = Evolution, y = Estimate, ym
   theme(axis.text.y = element_text(size = 14),
         axis.title.y = element_text(size = 16))+
   theme(legend.text = element_text(size=14),
-        legend.title = element_text(size=16))
+        legend.title = element_text(size=16, face = "bold"))
 
 save_plot("Figure_3.png", relw_popsize, base_height=3.71, base_width = 3.71*2*1.618)
-
+save_plot("./fig/Figure_3.pdf", relw_popsize, base_height=4, base_width = 10)
 
 #Figure 4: The difference in relative fitness between population sizes at 
 #different temperature treatments. The differences are statistically significant
@@ -259,7 +260,7 @@ plot_evoext_pop <- ggplot(data = differences.matrix.pop[c(1,2),], aes(x = Compar
   theme_classic()+
   theme(legend.position = "none")+
   scale_color_manual(values=c("#f50020","#0a74ea"))+
-  scale_y_continuous(limits=c(-0.1,0.4), breaks=seq(-0.1,0.4, 0.1), labels=signs_format(accuracy=0.1))+
+  scale_y_continuous(limits=c(-0.1,0.3), breaks=seq(-0.1,0.3, 0.1))+
   coord_flip()+
   theme(axis.text.x = element_text(size = 14),
         axis.title.x = element_text(size = 14))+
@@ -281,7 +282,7 @@ plot_evomean_pop <- ggplot(data = differences.matrix.pop[c(7:10),], aes(x = Comp
   theme_classic()+
   theme(legend.position = "none")+
   scale_color_manual(values=c("#f50020","#99cf00","#c415b7","#0a74ea"))+
-  scale_y_continuous(limits=c(-0.1,0.4), breaks=seq(-0.1,0.4, 0.1), labels=signs_format(accuracy=0.1))+
+  scale_y_continuous(limits=c(-0.1,0.3), breaks=seq(-0.1,0.3, 0.1))+
   coord_flip()+
   theme(axis.text.x = element_text(size = 14),
         axis.title.x = element_text(size = 14))+
@@ -301,7 +302,7 @@ plot_evofast_pop <- ggplot(data = differences.matrix.pop[c(3,4),], aes(x = Compa
   theme_classic()+
   theme(legend.position = "none")+
   scale_color_manual(values=c("#99cf00","#0a74ea"))+
-  scale_y_continuous(limits=c(-0.12,0.4), breaks=seq(-0.12,0.4, 0.1), labels=signs_format(accuracy=0.1))+
+  scale_y_continuous(limits=c(-0.12,0.3), breaks=seq(-0.1,0.3, 0.1))+
   coord_flip()+
   theme(axis.text.x = element_text(size = 14),
         axis.title.x = element_text(size = 14))+
@@ -321,7 +322,7 @@ plot_evoint_pop <- ggplot(data = differences.matrix.pop[c(5,6),], aes(x = Compar
   theme_classic()+
   theme(legend.position = "none")+
   scale_color_manual(values=c("#c415b7","#0a74ea"))+
-  scale_y_continuous(limits=c(-0.12,0.4), breaks=seq(-0.12,0.4, 0.1), labels=signs_format(accuracy=0.1))+
+  scale_y_continuous(limits=c(-0.12,0.3), breaks=seq(-0.1,0.3, 0.1))+
   coord_flip()+
   theme(axis.text.x = element_text(size = 14),
         axis.title.x = element_text(size = 14))+
@@ -341,7 +342,7 @@ plot_evoslow_pop <- ggplot(data = differences.matrix.pop[c(11,12),], aes(x = Com
   theme_classic()+
   theme(legend.position = "none")+
   scale_color_manual(values=c("#f50020","#0a74ea"))+
-  scale_y_continuous(limits=c(-0.12,0.4), breaks=seq(-0.12,0.4, 0.1), labels=signs_format(accuracy=0.1))+
+  scale_y_continuous(limits=c(-0.1,0.3), breaks=seq(-0.1,0.3, 0.1))+
   coord_flip()+
   theme(axis.text.x = element_text(size = 14),
         axis.title.x = element_text(size = 14))+
@@ -360,7 +361,7 @@ plot_legend_comp <- ggplot(data = differences.matrix.pop[c(7:10),], aes(x = Comp
   labs(title = "Evolution environment Mean")+
   theme_classic()+
   scale_color_manual(values=c("#f50020","#99cf00","#c415b7","#0a74ea"))+
-  scale_y_continuous(limits=c(-0.1,0.4), breaks=seq(-0.1,0.4, 0.1), labels=signs_format(accuracy=0.1))+
+  scale_y_continuous(limits=c(-0.1,0.3), breaks=seq(-0.1,0.3, 0.1))+
   coord_flip()+
   theme(axis.text.x = element_text(size = 14),
         axis.title.x = element_text(size = 14))+
@@ -377,7 +378,7 @@ save_plot("Figure_4_legend.png", legend_comp)
 
 #Combine separate plots and legend into one figure
 
-differences_pop <-plot_grid(plot_evoext_pop, plot_evomean_pop, plot_evofast_pop, plot_evoint_pop, plot_evoslow_pop, legend_comp,
+differences_pop <- plot_grid(plot_evoext_pop, plot_evomean_pop, plot_evofast_pop, plot_evoint_pop, plot_evoslow_pop, legend_comp,
                             nrow = 3,
                             ncol = 2,
                             rel_heights = c(2,2),
@@ -385,8 +386,31 @@ differences_pop <-plot_grid(plot_evoext_pop, plot_evomean_pop, plot_evofast_pop,
                             labels = c("(A)", "(B)", "(C)", "(D)", "(E)"))
 
 save_plot("Figure_4.png", differences_pop, base_height=7.71, base_width = 3.71*2*1.618)
+save_plot("./fig/Figure_4.pdf", differences_pop, base_height=7.71, base_width = 3.71*2*1.618)
 
 
+#Making a new figure 3
+
+p.pop.difs <- ggplot(data = differences.matrix.pop, aes(x = Evolution, y = mean, ymin = lower, ymax = upper, colour = Competition)) +
+    geom_pointrange(position= position_dodge(width = 0.2)) +
+    geom_hline(yintercept = 0, lty = "dashed") +
+    scale_color_manual(values=c("#f50020","#99cf00","#c415b7","#0a74ea"))+
+  scale_y_continuous(limits=c(-0.12,0.3), breaks=seq(-0.1,0.3, 0.1))+
+    xlab("Evolution environment") +
+    ylab("Difference  \n (Large - Small)") +    
+  #coord_flip()+
+  theme(axis.text.x = element_text(size = 14),
+        axis.title.x = element_text(size = 16)) +
+  theme(axis.text.y = element_text(size = 14)) +
+  theme(plot.title=element_text(size = 16, face = "bold")) +
+  theme(legend.text = element_text(size=14),
+        legend.title = element_text(size=16, face = "bold")) +
+  theme(legend.position = "none")    
+
+p.pop.relw <- plot_grid(relw_popsize + theme(legend.position = "top"), p.pop.difs, align = "v", axis = "l", ncol = 1, labels = c("A", "B"), rel_heights = c(2,1))
+
+save_plot("./fig/Figure_3_new.pdf", p.pop.relw, base_height=6, base_width = 10)
+        
 #Figure 5: The difference in relative fitness between competition environments for
 #large (green) and small (yellow) populations. For the statistical significance, the
 #95 % HPDI does not overlap with zero.
@@ -593,7 +617,7 @@ save_plot("Figure_5_legend.png", legend_pop)
 
 #Combine separate plots and legend into one figure
 
-differences_comp <-plot_grid(plot_evoext_comp,plot_evomean_comp,plot_evofast_comp,plot_evoint_comp,plot_evoslow_comp, legend_pop,
+differences_comp <- plot_grid(plot_evoext_comp,plot_evomean_comp,plot_evofast_comp,plot_evoint_comp,plot_evoslow_comp, legend_pop,
                         nrow = 3,
                         ncol = 2,
                         rel_heights = c(2,2),
@@ -601,3 +625,27 @@ differences_comp <-plot_grid(plot_evoext_comp,plot_evomean_comp,plot_evofast_com
                         labels = c("(A)", "(B)", "(C)", "(D)", "(E)"))
 
 save_plot("Figure_5.png", differences_comp, base_height=7.71, base_width = 3.71*2*1.618)
+
+#New version of the plot
+p.comp.dif <- ggplot(data = differences.matrix.comp, aes(x = Evolution, colour = Competition, y = mean, min = lower, ymax = upper)) +
+    geom_pointrange(position= position_dodge(width = 0.2)) +
+    geom_hline(yintercept = 0, lty = "dashed") +
+    ylab("Difference \n (Match - Mismatch)") +
+    xlab("Evolution environment") +
+    labs(colour = "Comparison") +    
+    theme_classic() +
+    theme(strip.text = element_text(
+    size = 14))+    
+    theme(axis.text.x = element_text(size = 14),
+        axis.title.x = element_text(size = 16))+
+  theme(axis.text.y = element_text(size = 14),
+        axis.title.y = element_text(size = 16))+
+  theme(plot.title=element_text(size = 16, face = "bold"))+
+  theme(legend.text = element_text(size=14),
+        legend.title = element_text(size=16, face = "bold"),
+        legend.position = "bottom", legend.justification = "center") +
+    facet_grid(populationsize ~ . )
+
+p.pop.relw2 <- plot_grid(relw_popsize + theme(legend.position = "top"), p.pop.difs, p.comp.dif, align = "v", axis = "l", ncol = 1, labels = c("A", "B", "C"), rel_heights = c(2,1,2))
+
+save_plot("./fig/Figure_3_new2.pdf", p.pop.relw2, base_height=10, base_width = 10)
