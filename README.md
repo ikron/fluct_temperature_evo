@@ -4,7 +4,7 @@ Manuscript about experimental evolution study in fluctuating temperatures.
 This repository contains data ans scripts related to the manuscript: "Adaptations and maladaptations due to evolution in constant, but not at fluctuating temperatures" by Räsänen et al. A preprint of this manuscript can be found in bioRxiv [https://doi.org/10.1101/2024.10.05.616761](https://www.biorxiv.org/content/10.1101/2024.10.05.616761v1)
 
 A Zenodo repository that is a copy of this GitHub repository but includes also the photographs taken of the competition experiments plates, as this data was too large to be uploaded in to GitHub, can be found at DOI:
-[https://doi.org/10.5281/zenodo.17224132](10.5281/zenodo.17224132)
+[https://doi.org/10.5281/zenodo.17224132](https://doi.org/10.5281/zenodo.17224132)
 
 ## Data
 
