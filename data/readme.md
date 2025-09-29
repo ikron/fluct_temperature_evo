@@ -26,6 +26,7 @@
   <li> 18: Evolved.strain.final.CFU: Colony count of the evolved strain at the final time point </li>
   <li> 19: Ancestor.final.CFU: Colony count of the competitor from the final time point </li>
   </ul>
+  <li> Columns 13 and 17 that give the picture IDs correspond numbers in the plate photograph files. Picture files in are folders according column 12, the competition round. Use the competition round to find the corresponding folder, then picture ID 3441 corresponds to file IMG_3441.JPG for example. Picture are are included in the Zenodo repository </li>
 </ul>
 
 ## Pombe_competition_experiment_models_original.RData
