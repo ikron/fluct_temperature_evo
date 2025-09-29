@@ -58,3 +58,16 @@ This in an R data file contains the saved brms models for the analysis of compet
     <li> 18: kasvu: notes from the growth curve fits </li>
   </ul>
 </ul>
+
+## TPCdata_EBC605_full.csv
+
+<ul>
+  <li> This file contains data for growth rate measurements of the ancestor at different temperatures. That is data for figure 1 in the manuscript</li>
+  <li> The columns are: </li>
+  <ul>
+    <li> 1: Temperature: Temperature where the growth curve was measured </li>
+    <li> 2: Bioscreen: ID of the machine used for measurement </li>
+    <li> 3: k: value for the carrying capacity parameter extracted from the growth curve fit </li>
+    <li> 4: r: value for the maximum growth rate paremeter extracted from the growth curve fit </li>
+  </ul>
+</ul>
